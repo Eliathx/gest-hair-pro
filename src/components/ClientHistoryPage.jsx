@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BotonRegresar from "./BotonRegresar";
 
 function ClientHistoryPage() {
   const [clientHistoryData, setClientHistoryData] = useState([
@@ -67,6 +68,7 @@ function ClientHistoryEntry({ date, serviceType, amount, description }) {
         </div>
         {description}
       </div>
+      <BotonRegresar></BotonRegresar>
     </div>
   );
 }

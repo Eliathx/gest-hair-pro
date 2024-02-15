@@ -19,9 +19,7 @@ function MensajeConfirmacion({ openModal, closeModal, text }) {
     >
       <div className="mensajeConfirmacionRegistroClienteInner">
         {text}
-        <Link to="/">
-          <button onClick={closeModal}>Listo</button>
-        </Link>
+        <button onClick={closeModal}>Listo</button>
       </div>
     </dialog>
   );

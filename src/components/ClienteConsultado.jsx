@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MensajeConfirmacion from "./MensajeConfirmacion";
 import { Link } from "react-router-dom";
+import BotonRegresar from "./BotonRegresar";
 
 const ClienteConsultado = ({
   nombres: initialNombres,
@@ -293,6 +294,7 @@ const ClienteConsultado = ({
           />
         ) : null}
       </form>
+      <BotonRegresar></BotonRegresar>
     </div>
   );
 };

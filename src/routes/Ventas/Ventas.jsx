@@ -1,6 +1,6 @@
-import BotonRegresar from "../components/BotonRegresar";
+import BotonRegresar from "../../components/BotonRegresar";
 import { Link } from "react-router-dom";
-const Productos = () => {
+const Ventas = () => {
   return (
     <div className="clientesBotonesContainer">
       <Link
@@ -13,36 +13,36 @@ const Productos = () => {
         }}
         to={"registrar"}
       >
-        Registrar producto
+        Emitir factura
         <svg
           width="24px"
           height="24px"
-          strokeWidth="1.5"
           viewBox="0 0 24 24"
+          stroke-width="1.5"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           color="currentColor"
         >
           <path
-            d="M17 10H20M23 10H20M20 10V7M20 10V13"
+            d="M20 13V5.74853C20 5.5894 19.9368 5.43679 19.8243 5.32426L16.6757 2.17574C16.5632 2.06321 16.4106 2 16.2515 2H4.6C4.26863 2 4 2.26863 4 2.6V21.4C4 21.7314 4.26863 22 4.6 22H14"
             stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           ></path>
           <path
-            d="M1 20V19C1 15.134 4.13401 12 8 12V12C11.866 12 15 15.134 15 19V20"
+            d="M16 2V5.4C16 5.73137 16.2686 6 16.6 6H20"
             stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           ></path>
           <path
-            d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12Z"
+            d="M16 19H22M22 19L19 16M22 19L19 22"
             stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           ></path>
         </svg>
       </Link>
@@ -55,9 +55,9 @@ const Productos = () => {
           gap: "1rem",
           gridArea: "cons",
         }}
-        to={"consultar"}
+        to={"consultarFacturaCedula"}
       >
-        Consultar producto
+        Consultar facturas de cliente por número de cédula
         <svg
           width="24px"
           height="24px"
@@ -97,10 +97,41 @@ const Productos = () => {
           ></path>
         </svg>
       </Link>
-
+      <Link
+        className="pseudoButton"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem",
+          gridArea: "est",
+        }}
+        to={"consultarFacturaFechas"}
+      >
+        Consultar facturas por fecha o rango de fechas
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          height={"24"}
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
+          />
+        </svg>
+      </Link>
       <BotonRegresar></BotonRegresar>
     </div>
   );
 };
 
-export default Productos;
+export default Ventas;

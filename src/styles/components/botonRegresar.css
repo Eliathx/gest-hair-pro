@@ -1,0 +1,15 @@
+.botonRegresarContainer{
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-content: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem; 
+    border: 2px dashed transparent;
+    cursor: pointer;
+    transition: 0.15s ease-in;
+  }
+.botonRegresarContainer:hover{
+  border: 2px dashed var(--secondary-bg);
+}

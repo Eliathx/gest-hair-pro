@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BotonRegresar from "../../components/BotonRegresar";
 
 const Clientes = () => {
   return (
@@ -107,7 +108,7 @@ const Clientes = () => {
         }}
         to={"estadisticasClientes"}
       >
-        Estadisticas mensuales de clientes
+        Estadísticas mensuales de clientes
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -129,6 +130,7 @@ const Clientes = () => {
           />
         </svg>
       </Link>
+      <BotonRegresar></BotonRegresar>
     </div>
   );
 };

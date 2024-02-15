@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-import getMonthlyTotal from "../../utils/getMonthlyTotal";
+import getMonthlyTotal from "../../utils/getTotal";
 
 import "./estadisticasClientes.css";
+import BotonRegresar from "../../components/BotonRegresar";
 
 export default function EstadisticasClientes() {
   const [estadisticaMensual, setEstadisticaMensual] = useState([
@@ -41,6 +42,8 @@ export default function EstadisticasClientes() {
 
   return (
     <div className="estadisticaMensualPageWrapper">
+      <BotonRegresar></BotonRegresar>
+
       {estadisticaMensual.map((element) => {
         return (
           <EstadisticaMensual

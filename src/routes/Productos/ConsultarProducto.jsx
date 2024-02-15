@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BotonRegresar from "../../components/BotonRegresar";
 
-const ConsultarClientes = () => {
+const ConsultarProducto = () => {
   const navigate = useNavigate();
   const [cedula, setCedula] = useState("");
   const [validCedula, setValidCedula] = useState(true);
@@ -11,7 +11,7 @@ const ConsultarClientes = () => {
   const handleConsultarClick = (event) => {
     event.preventDefault();
     //Validar formato (10 dígitos)
-    const cedulaPattern = /^[0-9]{10}$/;
+    const cedulaPattern = /^[aA-zZ]$/;
     const isValidCedula = cedulaPattern.test(cedula);
 
     if (isValidCedula) {
@@ -19,25 +19,22 @@ const ConsultarClientes = () => {
         navigate("/clientes/clienteConsultado");
       } else {
         setValidCedula(false);
-        setInvalidMessage("Cliente no registrado.");
+        setInvalidMessage("Producto no registrado.");
       }
-      //TODO: Validar si cédula es válida en Ecuador
-      //Agregar aquí lógica de consulta a base de dato para caso "Cliente no registrado"
     } else {
       setValidCedula(false);
-      setInvalidMessage("Cédula no válida.");
+      setInvalidMessage("Ingreso no válida.");
     }
   };
 
   return (
     <div>
       <div style={{ textAlign: "center" }}>
-        <h2>Consultar cliente</h2>
-        <label>Ingrese la cédula de identidad del cliente</label>
+        <h2>Consultar producto</h2>
+        <label>Ingrese el tipo del producto</label>
         <form style={{ display: "flex", marginTop: "1rem", gap: "1rem" }}>
           <input
             type="text"
-            maxLength={10}
             value={cedula}
             onChange={(e) => {
               setCedula(e.target.value);
@@ -61,4 +58,4 @@ const ConsultarClientes = () => {
   );
 };
 
-export default ConsultarClientes;
+export default ConsultarProducto;
