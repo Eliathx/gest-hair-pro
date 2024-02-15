@@ -12,29 +12,34 @@ const FacturaItemComponent = ({
   return (
     <>
       <div
-        className="formInput"
-        style={{ gridArea: "entry" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
       >
-        <label>Servicio</label>
-        <select onChange={(e) => onInputChange("servicio", e.target.value)}>
-          <option>Corte</option>
-          <option>Peinado</option>
-          <option>Tinturado</option>
-          <option>Tratamiento</option>
-          <option>Venta de producto</option>
-        </select>
-      </div>
-      <div
-        className="formInput"
-        style={{ gridArea: "entry2" }}
-      >
-        <label>Valor</label>
-        <input
-          type="number"
-          name="name"
-          required
-          onChange={(e) => onInputChange("value", e.target.value)}
-        />
+        <div className="formInput">
+          <label>Servicio</label>
+          <select
+            style={{ display: "block" }}
+            onChange={(e) => onInputChange("servicio", e.target.value)}
+          >
+            <option>Corte</option>
+            <option>Peinado</option>
+            <option>Tinturado</option>
+            <option>Tratamiento</option>
+            <option>Venta de producto</option>
+          </select>
+        </div>
+        <div className="formInput">
+          <label>Valor</label>
+          <input
+            type="number"
+            name="name"
+            required
+            onChange={(e) => onInputChange("value", e.target.value)}
+          />
+        </div>
       </div>
       <div
         className="formInput"
@@ -184,45 +189,73 @@ const EmitirFactura = () => {
             value={3}
           />
         </div>
-        <div
-          style={{
-            gridArea: "addEntry",
-            border: "2px dashed gray",
-            padding: "1rem",
-            textAlign: "center",
-          }}
-          onClick={handleAddItem}
-        >
-          Agregar item
+      </form>
+      <div className="facturasContainer">
+        {facturaItems.map((element) => {
+          return (
+            <FacturaItemComponent
+              onInputChange={handleInputChange}
+              servicio={element.servicio}
+              value={element.value}
+              comentario={element.comentario}
+            ></FacturaItemComponent>
+          );
+        })}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          gap: "1.5rem",
+          margin: "1.5rem 0",
+        }}
+      >
+        <div>
+          <label>IVA</label>
+          <input
+            type="number"
+            name="date"
+            disabled
+            value={4.08}
+          />
         </div>
-        <div style={{ gridArea: "valorTotal" }}>
+        <div>
           <label>Total</label>
           <input
             type="number"
             name="date"
             disabled
-            value={getTotal(facturaItems)}
+            value={34}
           />
         </div>
-        <div className="facturasContainer">
-          {facturaItems.map((element) => {
-            return (
-              <FacturaItemComponent
-                onInputChange={handleInputChange}
-                servicio={element.servicio}
-                value={element.value}
-                comentario={element.comentario}
-              ></FacturaItemComponent>
-            );
-          })}
-        </div>
-        <input
-          style={{ gridArea: "addButton", padding: "1rem " }}
-          type="submit"
-          value={"Registrar producto"}
-          className="pseudoButton"
-        />
-      </form>
+      </div>
+      <div
+        style={{
+          gridArea: "addEntry",
+          border: "2px dashed gray",
+          padding: "1rem",
+          textAlign: "center",
+          width: "30%",
+          margin: "0 auto",
+          marginBottom: "1.5rem",
+        }}
+        onClick={handleAddItem}
+      >
+        Agregar item
+      </div>
+      <button
+        style={{
+          gridArea: "addButton",
+          display: "flex",
+          margin: "0 auto",
+          padding: "1rem ",
+        }}
+        onClick={handleSubmit}
+        className="pseudoButton"
+      >
+        Emitir factura
+      </button>
+
       <BotonRegresar></BotonRegresar>
     </div>
   );

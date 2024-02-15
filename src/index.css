@@ -158,23 +158,24 @@ input[type="date"]{
   "empty2 addButton addButton empty3";
 }
 
-.facturasContainer{
-  display: flex;
-  flex-direction: column;
+.facturasContainer > div{
+  margin: 1rem 0;
+
 }
-.addInvoiceForm{
+.addInvoiceForm,.addInvoiceEntry{
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(6, 1fr);
   grid-template-areas: "nombre nombre apellido apellido cedula number"
   "Direccion Direccion email  email telefono fechaCaducidad "
-  "date date estadoCivil estadoCivil comment comment"
-  "entry comentario comentario comentario comentario entry2"
-  "addEntry addEntry addEntry addEntry addEntry addEntry"
-  "empty4 empty4 empty4 empty4 valorTotal valorTotal"
-  "empty empty addButton addButton empty2 empty2";
 }
-input{
+input, select{
   width: 100%;
   box-sizing: border-box;
+}
+.addInvoiceEntry{
+  grid-template-areas: "nombre nombre apellido apellido cedula number"
+  "Direccion Direccion email  email telefono fechaCaducidad "
+  "servicio servicio empty empty valor valor"
+  "comentario comentario comentario comentario comentario comentario"
 }

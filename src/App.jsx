@@ -17,7 +17,7 @@ import EstadisticasClientes from "./routes/Clientes/EstadisticasClientes";
 import RegistrarProducto from "./routes/Productos/RegistrarProducto";
 import ConsultarProducto from "./routes/Productos/ConsultarProducto";
 import EmitirFactura from "./routes/Ventas/EmitirFactura";
-import ConsultarFacturaFechas from "./routes/Ventas/consultarFacturaFechas";
+import ConsultarFacturaFechas from "./routes/Ventas/ConsultarFacturaFechas";
 import ConsultarFacturaCedula from "./routes/Ventas/ConsultarFacturaCedula";
 import ModificarParametros from "./routes/Administracion/ConsultarParametros";
 import ConsultarParametros from "./routes/Administracion/ConsultarParametros";
@@ -25,7 +25,9 @@ import AgregarUsuarios from "./routes/Administracion/AgregarUsuarios";
 import ConsultarUsuario from "./routes/Administracion/ConsultarUsuario";
 import UsuarioConsultado from "./routes/Administracion/UsuarioConsultado";
 import Historial from "./routes/Historial";
-
+import FacturasConsultadas from "./routes/Ventas/FacturasConsultadas";
+import FacturasConsultadasCliente from "./routes/Ventas/FacturasConsultadasCliente";
+import ProductoConsultado from "./routes/Productos/ProductoConsultado";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -52,6 +54,10 @@ function App() {
               element={<Productos />}
             ></Route>
             <Route
+              path="productoConsultado"
+              element={<ProductoConsultado />}
+            ></Route>
+            <Route
               path="registrar"
               element={<RegistrarProducto />}
             ></Route>
@@ -74,7 +80,14 @@ function App() {
               path="registrar"
               element={<EmitirFactura />}
             ></Route>
-
+            <Route
+              path="facturasConsultadas"
+              element={<FacturasConsultadas />}
+            ></Route>
+            <Route
+              path="facturasConsultadasCliente"
+              element={<FacturasConsultadasCliente />}
+            ></Route>
             <Route
               path="consultarFacturaCedula"
               element={<ConsultarFacturaCedula />}

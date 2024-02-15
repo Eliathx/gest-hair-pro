@@ -43,11 +43,16 @@ const RegistrarProducto = () => {
 
         <div style={{ gridArea: "tipo" }}>
           <label>Tipo</label>
-          <input
-            required
-            type="text"
-            name="name"
-          />
+          <select>
+            <option>Cuidado del cabello</option>
+            <option>Styling</option>
+            <option>Coloración</option>
+            <option>Accesorios para el cabello</option>
+            <option>Tratamientos capilares especializados</option>
+            <option>Productos para barbería</option>
+            <option>Productos de higiene y desinfección</option>
+            <option>Productos de venta al por menor</option>
+          </select>
         </div>
         <div
           className="formInput"
@@ -62,9 +67,9 @@ const RegistrarProducto = () => {
             max={new Date().toISOString().split("T")[0]}
           />
         </div>
-        <div style={{ gridArea: "estado" }}>
+        <div style={{ gridArea: "estado", width: "100%" }}>
           <label>Estado</label>
-          <select>
+          <select style={{ display: "block" }}>
             <option>Buen estado</option>
             <option>Mal estado</option>
           </select>

@@ -11,20 +11,7 @@ const ConsultarProducto = () => {
   const handleConsultarClick = (event) => {
     event.preventDefault();
     //Validar formato (10 dígitos)
-    const cedulaPattern = /^[aA-zZ]$/;
-    const isValidCedula = cedulaPattern.test(cedula);
-
-    if (isValidCedula) {
-      if (cedula == "0750857187") {
-        navigate("/clientes/clienteConsultado");
-      } else {
-        setValidCedula(false);
-        setInvalidMessage("Producto no registrado.");
-      }
-    } else {
-      setValidCedula(false);
-      setInvalidMessage("Ingreso no válida.");
-    }
+    navigate("/productos/productoConsultado");
   };
 
   return (
@@ -32,17 +19,28 @@ const ConsultarProducto = () => {
       <div style={{ textAlign: "center" }}>
         <h2>Consultar producto</h2>
         <label>Ingrese el tipo del producto</label>
-        <form style={{ display: "flex", marginTop: "1rem", gap: "1rem" }}>
+        <form
+          style={{
+            display: "flex",
+            marginTop: "1rem",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <div style={{ gridArea: "tipo" }}>
+            <select>
+              <option>Cuidado del cabello</option>
+              <option>Styling</option>
+              <option>Coloración</option>
+              <option>Accesorios para el cabello</option>
+              <option>Tratamientos capilares especializados</option>
+              <option>Productos para barbería</option>
+              <option>Productos de higiene y desinfección</option>
+              <option>Productos de venta al por menor</option>
+            </select>
+          </div>
           <input
-            type="text"
-            value={cedula}
-            onChange={(e) => {
-              setCedula(e.target.value);
-              setValidCedula(true);
-            }}
-            required
-          />
-          <input
+            style={{ display: "block" }}
             className="pseudoButton"
             type="submit"
             onClick={handleConsultarClick}
