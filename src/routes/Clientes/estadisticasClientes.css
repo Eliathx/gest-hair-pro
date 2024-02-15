@@ -1,0 +1,10 @@
+.estadisticaMensualContainer{
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+}
+.estadisticaMensualPageWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3.5rem;
+}

@@ -1,0 +1,126 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  --light-blue: #67a3e7;
+  --red:#f18b8b;
+  --border-radius: 8px;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  --secondary-bg: #343434;
+  --third-bg: rgb(153, 153, 153);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--light-blue);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button, .pseudoButton {
+  border-radius: var( --border-radius);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--secondary-bg);
+  cursor: pointer;
+  transition: border-color 0.25s;
+  justify-content: center;
+}
+button:hover, .pseudoButton:hover {
+  border-color: #646cff;
+}
+button:focus, .pseudoButton:focus
+button:focus-visible, .pseudoButton:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button, .pseudoButton {
+    background-color: #f9f9f9;
+  }
+}
+
+
+.addClientForm, .queriedClientForm{
+  
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-areas: 
+  "name name apellidos apellidos amount"
+  "account account email  email category"
+  "date date estadoCivil estadoCivil comment"
+  "enfermedadesCapilares enfermedadesCapilares enfermedadesCapilares alergias alergias"
+  "preferencias preferencias preferencias empty3 empty3"
+  "empty empty addButton  empty2 empty2";
+}
+.queriedClientForm{
+  grid-template-areas: 
+  "name name apellidos apellidos amount"
+  "account account email  email category"
+  "date date estadoCivil estadoCivil comment"
+  "enfermedadesCapilares enfermedadesCapilares enfermedadesCapilares alergias alergias"
+  "preferencias preferencias preferencias estado estado"
+  "empty empty addButton  empty2 empty2";
+}
+.addClientForm *, .queriedClientForm *{
+  width: 100%;
+  box-sizing: border-box;
+
+}
+input, select{
+  padding: 0.25rem;
+}
+input[type="date"]{
+  height: 27px !important;
+}
+.mensajeConfirmacionRegistroCliente{
+  background-color: #242424;
+  padding: 2rem 4rem;
+  border: 1px #9c9c9c solid;
+  border-radius: 8px;
+}
+.mensajeConfirmacionRegistroClienteInner{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem
+}
+.clientesBotonesContainer{
+  display: grid;
+  gap: 1.5rem;
+  grid-template-areas: 
+  "reg cons" 
+  "est est"
+}
